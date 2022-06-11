@@ -13,6 +13,17 @@ Installation
 
 I'm still working this out.
 
+Open KiCad version 6.0 or later.
+
+1. Click the `Plugin and Content Manager` button.
+2. Click the `Manage` button next to the repository list dropdown.
+3. Click the `+` button on the bottom left, and enter https://github.com/danroblewis/kicad-eurorack-tools/raw/master/packaging/repository.json
+4. Click `Save`
+5. Then you have to select `danroblew's KiCad repository` from the repository list dropdown.
+6. Click `Install`, then `Apply Changes` and it'll download!
+
+
+
 
 Plugin
 ------
