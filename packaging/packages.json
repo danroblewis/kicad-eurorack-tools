@@ -36,7 +36,7 @@
             "description": "A  parts library of the canonical Eurorack parts",
             "description_full": "helps build eurorack audio synthesizer modules",
             "identifier": "com.github.danroblew.kicad-eurorack-library",
-            "type": "plugin",
+            "type": "library",
             "author": {
                 "name": "Daniel Lewis",
                 "contact": {
