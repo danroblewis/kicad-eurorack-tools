@@ -85,7 +85,7 @@ echo "{
         \"homepage\": \"https://github.com/danroblew/kicad-eurorack-tools\"
     },
     \"versions\": [{
-        \"version\": \"$VERSION\",
+        \"version\": \"$version\",
         \"status\": \"testing\",
         \"kicad_version\": \"6.0\"
     }]
