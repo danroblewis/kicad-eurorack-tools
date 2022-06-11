@@ -1,0 +1,34 @@
+{
+    "packages": [
+        {
+            "$schema": "https://go.kicad.org/pcm/schemas/v1",
+            "name": "KiCAD Eurorack tools",
+            "description": "A Eurorack integration addon for KiCAD",
+            "description_full": "helps build eurorack audio synthesizer modules",
+            "identifier": "com.github.danroblew.kicad-eurorack-tools",
+            "type": "plugin",
+            "author": {
+                "name": "Daniel Lewis",
+                "contact": {
+                    "twitter": "@danroblew"
+                }
+            },
+            "maintainer": {
+                "name": "Daniel Lewis",
+                "contact": {
+                    "twitter": "@danroblew"
+                }
+            },
+            "license": "WTFPL",
+            "resources": {
+                "homepage": "https://github.com/danroblew/kicad-eurorack-tools"
+            },
+            "versions": [{
+                "version": "0.0.1",
+                "status": "testing",
+                "kicad_version": "6.0",
+                "download_url": "http://ap6r0.bysh.me:8009/kicad-eurorack-tools.zip"
+            }]
+        }
+    ]
+}

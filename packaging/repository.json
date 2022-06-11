@@ -1,0 +1,21 @@
+{
+    "$schema": "https://gitlab.com/kicad/code/kicad/-/raw/master/kicad/pcm/schemas/pcm.v1.schema.json#/definitions/Repository",
+    "maintainer": {
+        "contact": {
+            "twitter": "@danroblew"
+        },
+        "name": "danroblew"
+    },
+    "name": "danroblew's KiCad repository",
+    "packages": {
+        "update_time_utc": "2022-06-08 12:51:53",
+        "update_timestamp": 1654692713,
+        "url": "http://ap6r0.bysh.me:8009/packages.json"
+    },
+    "resources": {
+        "update_time_utc": "2021-12-09 08:03:00",
+        "update_timestamp": 1639033380,
+        "url": "http://ap6r0.bysh.me:8009/resources.zip"
+    }
+}
+
