@@ -54,7 +54,7 @@
                 "homepage": "https://github.com/danroblew/kicad-eurorack-tools"
             },
             "versions": [{
-                "version": "",
+                "version": "0.0.3",
                 "status": "testing",
                 "kicad_version": "6.0",
                 "download_url": "https://github.com/danroblewis/kicad-eurorack-tools/releases/download/v0.0.2/kicad-eurorack-library-0.0.2.zip"
