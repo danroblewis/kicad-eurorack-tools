@@ -1,0 +1,14 @@
+.subckt MY_EURORACK_POWER_MODEL negative ground positive logic
+V1 GND -12 -12
+V2 +12v GND 12
+V3 +5V GND 5
+.ends
+
+.subckt MY_EURORACK_POWER_SHORT 1 2 3 4 5 6 7 8 9 10
+X1 1 3 5 6 MY_EURORACK_POWER_MODEL
+.ends
+
+.subckt MY_EURORACK_POWER 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16
+X1 1 3 5 6 MY_EURORACK_POWER_MODEL
+* TODO: implement gate and cv voltage sources
+.ends

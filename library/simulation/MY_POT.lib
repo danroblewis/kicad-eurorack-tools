@@ -1,0 +1,51 @@
+
+.subckt pot100k 1 2 3
+R1 1 2 50k
+R2 2 3 50k
+.ends
+
+.subckt pot100k_lowish 1 2 3
+R1 1 2 25k
+R2 2 3 75k
+.ends
+
+.subckt pot100k_low 1 2 3
+R1 1 2 1k
+R2 2 3 99k
+.ends
+
+.subckt pot100k_highish 1 2 3
+R1 1 2 75k
+R2 2 3 25k
+.ends
+
+.subckt pot100k_high 1 2 3
+R1 1 2 99k
+R2 2 3 1k
+.ends
+
+
+.subckt pot2_2Meg 1 2 3
+R1 1 2 1100k
+R2 2 3 1100k
+.ends
+
+.subckt pot2_2Meg_lowish 1 2 3
+R1 1 2 550k
+R2 2 3 1650k
+.ends
+
+.subckt pot2_2Meg_low 1 2 3
+R1 1 2 1k
+R2 2 3 1199k
+.ends
+
+.subckt pot2_2Meg_highish 1 2 3
+R1 1 2 1650k
+R2 2 3 550k
+.ends
+
+.subckt pot2_2Meg_high 1 2 3
+R1 1 2 1199k
+R2 2 3 1k
+.ends

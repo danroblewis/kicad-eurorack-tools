@@ -1,0 +1,5 @@
+.trash
+**.swp
+build/*.zip
+build/*.lib
+build/*.mod
