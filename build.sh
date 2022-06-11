@@ -63,11 +63,11 @@ cd library
 cp -rf ../../library/* .
 echo "{
     \"\$schema\": \"https://go.kicad.org/pcm/schemas/v1\",
-    \"name\": \"KiCAD Eurorack tools\",
-    \"description\": \"A Eurorack integration addon for KiCAD\",
+    \"name\": \"KiCAD Eurorack library\",
+    \"description\": \"A  parts library of the canonical Eurorack parts\",
     \"description_full\": \"helps build eurorack audio synthesizer modules\",
-    \"identifier\": \"com.github.danroblew.kicad-eurorack-tools\",
-    \"type\": \"plugin\",
+    \"identifier\": \"com.github.danroblew.kicad-eurorack-library\",
+    \"type\": \"library\",
     \"author\": {
         \"name\": \"Daniel Lewis\",
         \"contact\": {
