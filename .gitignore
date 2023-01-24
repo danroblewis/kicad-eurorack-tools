@@ -3,3 +3,4 @@
 build/*.zip
 build/*.lib
 build/*.mod
+.kicadsym_filepath

@@ -57,3 +57,28 @@ To set up a simluation:
 ```
 6. Click `Inspect` in the top bar, `Simulator...` from the menu, click `Run/Stop Simulation`, then click `Probe` and choose a trace you want to inspect.
 
+
+Development
+---------
+
+Make a text file in this project's root directory named `.kicadsym_filepath`, each line contains an absolute path to a `.kicad_sym` file in your KiCad 6.0 installation directory.
+
+Add, at minimum, one line for your `EuroRackTools.kicad_sym` file:
+```
+/mnt/c/Users/danroblew/Documents/KiCad/6.0/3rdparty/symbols/com_github_danroblew_kicad-eurorack-library/EuroRackTools.kicad_sym
+```
+
+Building a New Release
+--------------------
+
+Once you've configured your environment properly (the `.kicadsym_filepath` file), update the value in `VERSION` then run these commands:
+```bash
+./copy_from_kicad.sh
+./build.sh
+git add .
+git commit -m "new version `cat VERSION`"
+git push origin master
+```
+Then go to https://github.com/danroblewis/kicad-eurorack-tools/releases/new to draft a new release.
+
+KiCad installations can then be updated with the new version.
