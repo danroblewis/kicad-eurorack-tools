@@ -4,9 +4,9 @@ def nnline(a, b, stroke=0.5):
 	box = pcbnew.PCB_SHAPE()
 	box.SetLayer(pcbnew.Edge_Cuts)
 	box.SetShape(pcbnew.S_SEGMENT)
-	box.SetStart(pcbnew.wxPoint(int(a[0]*pcbnew.IU_PER_MM),int(a[1]*pcbnew.IU_PER_MM)))
-	box.SetEnd(pcbnew.wxPoint(int(b[0]*pcbnew.IU_PER_MM),int(b[1]*pcbnew.IU_PER_MM)))
-	box.SetWidth(int(stroke*pcbnew.IU_PER_MM))
+	box.SetStart(pcbnew.VECTOR2I(int(a[0]*pcbnew.schIUScale.mmToIU(100)),int(a[1]*pcbnew.schIUScale.mmToIU(100))))
+	box.SetEnd(pcbnew.VECTOR2I(int(b[0]*pcbnew.schIUScale.mmToIU(100)),int(b[1]*pcbnew.schIUScale.mmToIU(100))))
+	box.SetWidth(int(stroke*pcbnew.schIUScale.mmToIU(100)))
 	pcbnew.GetBoard().Add(box)
 
 
@@ -14,9 +14,9 @@ def nnrect(pos, dims, stroke=0.5):
 	box = pcbnew.PCB_SHAPE()
 	box.SetLayer(pcbnew.Edge_Cuts)
 	box.SetShape(pcbnew.S_RECT)
-	box.SetStart(pcbnew.wxPoint(int(pos[0]*pcbnew.IU_PER_MM),int(pos[1]*pcbnew.IU_PER_MM)))
-	box.SetEnd(pcbnew.wxPoint(int((pos[0]+dims[0])*pcbnew.IU_PER_MM),int((pos[1]+dims[1])*pcbnew.IU_PER_MM)))
-	box.SetWidth(int(stroke*pcbnew.IU_PER_MM))
+	box.SetStart(pcbnew.VECTOR2I(int(pos[0]*pcbnew.schIUScale.mmToIU(100)), int(pos[1]*pcbnew.schIUScale.mmToIU(100))))
+	box.SetEnd(pcbnew.VECTOR2I(int((pos[0]+dims[0])*pcbnew.schIUScale.mmToIU(100)), int((pos[1]+dims[1])*pcbnew.schIUScale.mmToIU(100))))
+	box.SetWidth(int(stroke*pcbnew.schIUScale.mmToIU(100)))
 	pcbnew.GetBoard().Add(box)
 
 
@@ -34,14 +34,14 @@ def nnzone(pos, dims, layername):
 		None, 
 		gnd_net.GetNetCode(), 
 		layertable[layername], 
-		pcbnew.wxPoint(int(pos[0]*pcbnew.IU_PER_MM),int(pos[1]*pcbnew.IU_PER_MM)), 
+		pcbnew.VECTOR2I(int(pos[0]*pcbnew.schIUScale.mmToIU(100)),int(pos[1]*pcbnew.schIUScale.mmToIU(100))), 
 		pcbnew.ZONE_BORDER_DISPLAY_STYLE_DIAGONAL_EDGE
 	)
 	newoutline = newarea.Outline()
-	# newoutline.Append(int(pos[0]*pcbnew.IU_PER_MM),int(pos[1]*pcbnew.IU_PER_MM))
-	newoutline.Append(int((pos[0]+dims[0])*pcbnew.IU_PER_MM),int(pos[1]*pcbnew.IU_PER_MM))
-	newoutline.Append(int((pos[0]+dims[0])*pcbnew.IU_PER_MM),int((pos[1]+dims[1])*pcbnew.IU_PER_MM))
-	newoutline.Append(int(pos[0]*pcbnew.IU_PER_MM),int((pos[1]+dims[1])*pcbnew.IU_PER_MM))
+	# newoutline.Append(int(pos[0]*pcbnew.schIUScale.mmToIU(100)),int(pos[1]*pcbnew.schIUScale.mmToIU(100)))
+	newoutline.Append(int((pos[0]+dims[0])*pcbnew.schIUScale.mmToIU(100)),int(pos[1]*pcbnew.schIUScale.mmToIU(100)))
+	newoutline.Append(int((pos[0]+dims[0])*pcbnew.schIUScale.mmToIU(100)),int((pos[1]+dims[1])*pcbnew.schIUScale.mmToIU(100)))
+	newoutline.Append(int(pos[0]*pcbnew.schIUScale.mmToIU(100)),int((pos[1]+dims[1])*pcbnew.schIUScale.mmToIU(100)))
 	newarea.HatchBorder()
 
 
@@ -54,10 +54,10 @@ def nncircle(pos, diameter, stroke=0.5):
 		(pos[0],pos[1]+diameter/2.0)
 	]
 
-	circle.SetStart(pcbnew.wxPoint(pts[0][0]*pcbnew.IU_PER_MM, pts[0][1]*pcbnew.IU_PER_MM))
-	circle.SetEnd(pcbnew.wxPoint(pts[1][0]*pcbnew.IU_PER_MM, pts[1][1]*pcbnew.IU_PER_MM))
+	circle.SetStart(pcbnew.VECTOR2I(int(pts[0][0]*pcbnew.schIUScale.mmToIU(100)), int(pts[0][1]*pcbnew.schIUScale.mmToIU(100))))
+	circle.SetEnd(pcbnew.VECTOR2I(int(pts[1][0]*pcbnew.schIUScale.mmToIU(100)), int(pts[1][1]*pcbnew.schIUScale.mmToIU(100))))
 
-	circle.SetWidth(int(stroke*pcbnew.IU_PER_MM))
+	circle.SetWidth(int(stroke*pcbnew.schIUScale.mmToIU(100)))
 	pcbnew.GetBoard().Add(circle)
 
 
@@ -122,8 +122,8 @@ def draw_euro_frontpanel(hp):
 
 	for jack in jacks:
 		c = jack.GetCenter()
-		x = c[0] / pcbnew.IU_PER_MM
-		y = c[1]  / pcbnew.IU_PER_MM
+		x = c[0] / pcbnew.schIUScale.mmToIU(100)
+		y = c[1]  / pcbnew.schIUScale.mmToIU(100)
 		# TODO: find the rotation of the jack, adjust circle position accordingly
 		nncircle((x+0.7,y), 5)
 
