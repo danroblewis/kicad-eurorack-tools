@@ -73,7 +73,6 @@ Building a New Release
 
 Once you've configured your environment properly (the `.kicadsym_filepath` file), update the value in `VERSION` then run these commands:
 ```bash
-./copy_from_kicad.sh
 ./build.sh
 git add .
 git commit -m "new version `cat VERSION`"
