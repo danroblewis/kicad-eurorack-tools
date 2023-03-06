@@ -50,7 +50,7 @@ echo "{
     \"versions\": [{
         \"version\": \"$VERSION\",
         \"status\": \"testing\",
-        \"kicad_version\": \"6.0\"
+        \"kicad_version\": \"7.0\"
     }]
 }" > manifest.json
 cp -rf ../../plugin/* plugins/
@@ -97,7 +97,7 @@ echo "{
     \"versions\": [{
         \"version\": \"$version\",
         \"status\": \"testing\",
-        \"kicad_version\": \"6.0\"
+        \"kicad_version\": \"7.0\"
     }]
 }" > manifest.json
 zip kicad-eurorack-library-$version.zip -r *
