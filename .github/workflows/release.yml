@@ -6,18 +6,14 @@ on:
       - v*
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Push tag for released action
-        run: |
-          echo "hello world"
-          bash build.sh
   release:
     runs-on: ubuntu-latest
-
     steps:
+    - uses: actions/checkout@v3
+    - name: Push tag for released action
+      run: |
+        echo "hello world"
+        bash build.sh
     - run: |
         ls
     - run: |
