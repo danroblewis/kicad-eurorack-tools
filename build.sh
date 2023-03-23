@@ -12,7 +12,7 @@ version="$new_v"
 sed -i "s~$current_version~$version~g" packaging/packages.json
 echo "$version" > VERSION
 
-./copy_from_kicad.sh
+#./copy_from_kicad.sh
 
 # plugin directories must have:
 # /plugins/
@@ -111,6 +111,6 @@ rm -rf library/ plugin/
 
 cd ..
 
-git add .
-git commit -m "new version: $version"
-git push origin master
+#git add .
+#git commit -m "new version: $version"
+#git push origin master
