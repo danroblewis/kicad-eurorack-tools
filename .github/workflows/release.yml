@@ -11,26 +11,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Build KiCad package artifacts
-      run: |
-        echo "hello world"
-    
     - run: |
-        ls
-    
-    - run: |
-        pwd
-    
-    - run: |
-        echo hello world
         bash build.sh
-    
-    - run: |
-        pwd
-        ls -R .
-    
-    - run: |
-        ls build/
     
     - name: Create Draft Release
       id: create_release
