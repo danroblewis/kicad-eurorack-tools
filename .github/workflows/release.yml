@@ -13,4 +13,4 @@ jobs:
       - name: Push tag for released action
         run: |
           echo "hello world"
-          ./build.sh
+          bash build.sh
