@@ -27,7 +27,7 @@
                 "version": "0.0.16",
                 "status": "testing",
                 "kicad_version": "6.0",
-                "download_url": "https://github.com/danroblewis/kicad-eurorack-tools/releases/download/v0.0.16/kicad-eurorack-tools-0.0.16.zip"
+                "download_url": "https://github.com/danroblewis/kicad-eurorack-tools/releases/download/v0.0.16/kicad-eurorack-tools-v0.0.16.zip"
             }]
         },
         {
@@ -57,7 +57,7 @@
                 "version": "0.0.16",
                 "status": "testing",
                 "kicad_version": "6.0",
-                "download_url": "https://github.com/danroblewis/kicad-eurorack-tools/releases/download/v0.0.16/kicad-eurorack-library-0.0.16.zip"
+                "download_url": "https://github.com/danroblewis/kicad-eurorack-tools/releases/download/v0.0.16/kicad-eurorack-library-v0.0.16.zip"
             }]
         }
     ]

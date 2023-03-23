@@ -54,8 +54,8 @@ echo "{
     }]
 }" > manifest.json
 cp -rf ../../plugin/* plugins/
-zip kicad-eurorack-tools-$version.zip -r *
-mv kicad-eurorack-tools-$version.zip ..
+zip kicad-eurorack-tools-v$version.zip -r *
+mv kicad-eurorack-tools-v$version.zip ..
 cd ..
 
 
@@ -100,8 +100,8 @@ echo "{
         \"kicad_version\": \"7.0\"
     }]
 }" > manifest.json
-zip kicad-eurorack-library-$version.zip -r *
-mv kicad-eurorack-library-$version.zip ..
+zip kicad-eurorack-library-v$version.zip -r *
+mv kicad-eurorack-library-v$version.zip ..
 cd ..
 
 # simulation

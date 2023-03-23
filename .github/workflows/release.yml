@@ -6,7 +6,7 @@ on:
       - v*
 
 jobs:
-  release:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -14,3 +14,49 @@ jobs:
         run: |
           echo "hello world"
           bash build.sh
+  release:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Create Draft Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: $(git tag --points-at HEAD)
+        release_name: $(git tag --points-at HEAD)
+        draft: true
+        prerelease: false
+
+    - uses: actions/upload-release-asset@v1.0.1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./build/kicad-eurorack-library-0.0.13.zip
+        asset_name: kicad-eurorack-library-0.0.13.zip
+        asset_content_type: application/zip
+
+    - uses: actions/upload-release-asset@v1.0.1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./build/kicad-eurorack-tools-0.0.13.zip
+        asset_name: kicad-eurorack-tools-0.0.13.zip
+        asset_content_type: application/zip
+
+    - uses: actions/upload-release-asset@v1.0.1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./build/kicad-eurorack-simluation-0.0.13.lib
+        asset_name: kicad-eurorack-simluation-0.0.13.lib
+        asset_content_type: application/text
+
+    - uses: eregon/publish-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        release_id: ${{ steps.create_release.outputs.id }}
