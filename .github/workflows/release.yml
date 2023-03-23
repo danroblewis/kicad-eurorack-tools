@@ -21,7 +21,13 @@ jobs:
     - run: |
         ls
     - run: |
+        pwd
+    - run: |
+        cd ${{ github.workspace }}
+        pwd
+    - run: |
         echo hello world
+        cd ${{ github.workspace }}
         bash build.sh
     - run: |
         ls build/
