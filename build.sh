@@ -3,7 +3,6 @@ set -x
 
 # get current version
 version="$(cat VERSION)"
-sed -i "s~$current_version~$version~g" packaging/packages.json
 
 #./copy_from_kicad.sh
 
@@ -98,7 +97,7 @@ mv kicad-eurorack-library-v$version.zip ..
 cd ..
 
 # simulation
-cat ../library/simulation/*.lib ../library/simulation/*.mod > kicad-eurorack-simulation-$version.lib
+cat ../library/simulation/*.lib ../library/simulation/*.mod > kicad-eurorack-simulation-v$version.lib
 
 rm -rf library/ plugin/
 
