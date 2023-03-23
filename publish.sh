@@ -9,7 +9,7 @@ v=$[`echo $current_version | grep -oE "[0-9]+$"`+1]
 version="`echo "$current_version" | sed "s~[0-9]*$~$v~"`"
 echo "$version" > VERSION
 
-sed -i "s~$current_version~$version~g" packaging/packages.json
+sed "s~___VERSION___~$version~g" packaging/packages.json.tpl > packaging/packages.json
 
 ./copy_from_kicad.sh
 git add .
