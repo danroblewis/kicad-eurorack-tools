@@ -2,15 +2,8 @@
 set -x
 
 # get current version
-current_version="$(cat VERSION)"
-
-# increment build number
-v=$[`echo $current_version | grep -oE "[0-9]+$"`+1]
-new_v="`echo "$current_version" | sed "s~[0-9]*$~$v~"`"
-version="$new_v"
-
+version="$(cat VERSION)"
 sed -i "s~$current_version~$version~g" packaging/packages.json
-echo "$version" > VERSION
 
 #./copy_from_kicad.sh
 

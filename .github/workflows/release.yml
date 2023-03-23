@@ -10,24 +10,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Push tag for released action
+    
+    - name: Build KiCad package artifacts
       run: |
         echo "hello world"
-        bash build.sh
+    
     - run: |
         ls
+    
     - run: |
         pwd
-    - run: |
-        cd ${{ github.workspace }}
-        pwd
-        ls -Ra .
+    
     - run: |
         echo hello world
-        cd ${{ github.workspace }}
         bash build.sh
+    
+    - run: |
+        pwd
+        ls -R .
+    
     - run: |
         ls build/
+    
     - name: Create Draft Release
       id: create_release
       uses: actions/create-release@v1
