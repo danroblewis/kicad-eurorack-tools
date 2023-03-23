@@ -4,14 +4,6 @@ set -x
 # get current version
 version="$(cat VERSION)"
 
-#./copy_from_kicad.sh
-
-# plugin directories must have:
-# /plugins/
-# /plugins/__init__.py
-# /resources/icon.png
-# /metadata.json
-
 mkdir -p build/plugin/plugins
 cd build/plugin
 mkdir resources
@@ -103,6 +95,3 @@ rm -rf library/ plugin/
 
 cd ..
 
-#git add .
-#git commit -m "new version: $version"
-#git push origin master

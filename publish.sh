@@ -11,7 +11,6 @@ echo "$version" > VERSION
 
 sed "s~___VERSION___~$version~g" packaging/packages.json.tpl > packaging/packages.json
 
-./copy_from_kicad.sh
 git add .
 git commit -m "new version"
 git tag -a v$version -m v$version
