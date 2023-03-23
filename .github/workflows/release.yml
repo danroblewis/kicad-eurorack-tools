@@ -10,9 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Build KiCad zip files
-      - uses: actions/checkout@v3
-      - run: |
-          bash build.sh
+      uses: actions/checkout@v3
+      run: |
+        bash build.sh
     
     - name: Create Draft Release
       id: create_release
