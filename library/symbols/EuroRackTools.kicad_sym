@@ -3187,7 +3187,7 @@
     (property "Sim.Params" "type=\"X\" model=\"MY_LM13700\" lib=\"\"" (at 0 0 0)
       (effects (font (size 0 0)) hide)
     )
-    (property "LCSC" "C174050" (at 2.54 -6.35 0)
+    (property "LCSC" "C1346265" (at 2.54 -6.35 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (symbol "LM13700_1_1"
@@ -4034,7 +4034,7 @@
     (property "Datasheet" "~" (at 0 0 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "lcsc" "C10852" (at 1.27 5.08 0)
+    (property "lcsc" "C294565" (at 1.27 5.08 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "ki_keywords" "switch lever" (at 0 0 0)
