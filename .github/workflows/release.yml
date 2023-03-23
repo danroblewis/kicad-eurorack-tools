@@ -16,7 +16,12 @@ jobs:
           bash build.sh
   release:
     runs-on: ubuntu-latest
+
     steps:
+    - run: |
+      ls
+    - run: |
+      ls build/
     - name: Create Draft Release
       id: create_release
       uses: actions/create-release@v1
