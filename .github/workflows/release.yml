@@ -66,8 +66,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./build/kicad-eurorack-simluation-${{ github.ref_name }}.lib
-        asset_name: kicad-eurorack-simluation-${{ github.ref_name }}.lib
+        asset_path: ./build/kicad-eurorack-simulation-${{ github.ref_name }}.lib
+        asset_name: kicad-eurorack-simulation-${{ github.ref_name }}.lib
         asset_content_type: application/text
 
     - uses: eregon/publish-release@v1
