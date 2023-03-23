@@ -10,3 +10,4 @@ git add .
 git commit -m "new version"
 git tag -a v$version -m v$version
 git push origin master
+git push origin master --tags

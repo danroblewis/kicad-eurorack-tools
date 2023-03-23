@@ -10,8 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: yarn install && yarn build
-
       - name: Push tag for released action
         run: |
           echo "hello world"
