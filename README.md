@@ -73,8 +73,10 @@ Building a New Release
 
 Once you've configured your environment properly (the `.kicadsym_filepath` file), update the value in `VERSION` then run these commands:
 ```bash
-./build.sh
+git pull origin master
+./copy_from_kicad.sh
+git diff  # check for conflicts!
+./publish.sh
 ```
-Then go to https://github.com/danroblewis/kicad-eurorack-tools/releases/new to draft a new release.
 
-KiCad installations can then be updated with the new version.
+KiCad installations can then be updated with the new version after the github raw cache refreshes (~5min).t
