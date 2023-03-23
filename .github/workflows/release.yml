@@ -25,6 +25,7 @@ jobs:
     - run: |
         cd ${{ github.workspace }}
         pwd
+        ls -Ra .
     - run: |
         echo hello world
         cd ${{ github.workspace }}
