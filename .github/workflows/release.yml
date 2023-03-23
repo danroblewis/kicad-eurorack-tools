@@ -21,6 +21,9 @@ jobs:
     - run: |
         ls
     - run: |
+        echo hello world
+        bash build.sh
+    - run: |
         ls build/
     - name: Create Draft Release
       id: create_release
