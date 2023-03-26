@@ -24,10 +24,10 @@
                 "homepage": "https://github.com/danroblew/kicad-eurorack-tools"
             },
             "versions": [{
-                "version": "0.0.33",
+                "version": "0.0.34",
                 "status": "testing",
                 "kicad_version": "6.0",
-                "download_url": "https://github.com/danroblewis/kicad-eurorack-tools/releases/download/v0.0.33/kicad-eurorack-tools-v0.0.33.zip"
+                "download_url": "https://github.com/danroblewis/kicad-eurorack-tools/releases/download/v0.0.34/kicad-eurorack-tools-v0.0.34.zip"
             }]
         },
         {
@@ -54,10 +54,10 @@
                 "homepage": "https://github.com/danroblew/kicad-eurorack-tools"
             },
             "versions": [{
-                "version": "0.0.33",
+                "version": "0.0.34",
                 "status": "testing",
                 "kicad_version": "6.0",
-                "download_url": "https://github.com/danroblewis/kicad-eurorack-tools/releases/download/v0.0.33/kicad-eurorack-library-v0.0.33.zip"
+                "download_url": "https://github.com/danroblewis/kicad-eurorack-tools/releases/download/v0.0.34/kicad-eurorack-library-v0.0.34.zip"
             }]
         }
     ]
