@@ -4581,7 +4581,7 @@
     (property "Sim.Params" "type=\"X\" model=\"MY_TL072\" lib=\"\"" (at 0 0 0)
       (effects (font (size 0 0)) hide)
     )
-    (property "LCSC" "C6961" (at 3.175 -4.445 0)
+    (property "LCSC" "C67473" (at 3.175 -4.445 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (symbol "TL072_1_1"
@@ -4656,7 +4656,7 @@
     (property "Datasheet" "http://www.ti.com/lit/ds/symlink/tl071.pdf" (at 1.27 8.89 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "lcsc" "C12594" (at -2.54 -7.62 0)
+    (property "lcsc" "C6964" (at -2.54 -7.62 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "ki_locked" "" (at 0 0 0)
