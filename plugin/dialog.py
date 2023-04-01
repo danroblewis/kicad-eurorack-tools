@@ -7,7 +7,6 @@ import sys
 import wx
 import wx.dataview
 from pcbnew import GetBoard
-# from .autoplace import AutoplacerWindow
 
 from .helpers import (
     PLUGIN_PATH,
@@ -96,7 +95,7 @@ class EurorackTools(wx.Dialog):
         self.EndModal(0)
 
     def show_autoplacer(self, e):
-        pass
-        # frm = AutoplacerWindow(None, title='Hello World 2')
-        # frm.Show()
+        from .autoplace import AutoplacerWindow
+        frm = AutoplacerWindow(None, title='Hello World 2')
+        frm.Show()
 
