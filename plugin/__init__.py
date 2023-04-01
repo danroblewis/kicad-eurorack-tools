@@ -6,6 +6,7 @@ import wx
 
 from .dialog import EurorackTools
 
+
 class EurorackToolsPlugin(ActionPlugin):
     def defaults(self):
         self.name = "Eurorack Tools"
@@ -23,6 +24,7 @@ class EurorackToolsPlugin(ActionPlugin):
         dialog = EurorackTools(None)
         dialog.Center()
         dialog.Show()
+
 
 
 EurorackToolsPlugin().register()
