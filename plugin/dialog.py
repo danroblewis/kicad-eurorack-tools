@@ -3,6 +3,7 @@ import logging
 import os
 import re
 import sys
+import pcbnew
 
 import wx
 import wx.dataview
@@ -37,6 +38,7 @@ class EurorackTools(wx.Dialog):
         self.scale_factor = GetScaleFactor(self.window)
         self.project_path = os.path.split(GetBoard().GetFileName())[0]
         self.Bind(wx.EVT_CLOSE, self.quit_dialog)
+        self.hideref_state = False
 
 
         self.hpbox = wx.TextCtrl(
@@ -92,12 +94,22 @@ class EurorackTools(wx.Dialog):
             0,
         )
 
+        self.btn_hide_refs = wx.Button(
+            self,
+            wx.ID_ANY,
+            "Hide Refs",
+            wx.Point(110,90), # wx.DefaultPosition,
+            HighResWxSize(self.window, wx.Size(100, -1)),
+            0,
+        )
+
         self.hpbox.Bind(wx.EVT_TEXT_ENTER, self.drawpanel)
         self.btn_draw_panel.Bind(wx.EVT_BUTTON, self.drawpanel)
         self.btn_draw_frontpanel.Bind(wx.EVT_BUTTON, self.drawfrontpanel)
         self.btn_show_autoplacer.Bind(wx.EVT_BUTTON, self.show_autoplacer)
         self.btn_show_autoplaceru.Bind(wx.EVT_BUTTON, self.show_autoplaceru)
         self.btn_show_tryplacer.Bind(wx.EVT_BUTTON, self.show_tryplacer)
+        self.btn_hide_refs.Bind(wx.EVT_BUTTON, self.hide_refs)
 
 
     def drawpanel(self, e):
@@ -130,3 +142,12 @@ class EurorackTools(wx.Dialog):
         frm = TryPlacer(None, title='Simple Autoplacer')
         frm.Run()
 
+    def hide_refs(self, e):
+        fs = pcbnew.GetBoard().GetFootprints()
+        self.hideref_state = not self.hideref_state
+        for f in fs:
+            try:
+                r = f.Reference().SetVisible(not self.hideref_state)
+            except:
+                pass
+        pcbnew.Refresh()
