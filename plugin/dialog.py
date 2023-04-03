@@ -74,10 +74,20 @@ class EurorackTools(wx.Dialog):
             0,
         )
 
+        self.btn_show_autoplaceru = wx.Button(
+            self,
+            wx.ID_ANY,
+            "Uplacer",
+            wx.Point(10,60), # wx.DefaultPosition,
+            HighResWxSize(self.window, wx.Size(100, -1)),
+            0,
+        )
+
         self.hpbox.Bind(wx.EVT_TEXT_ENTER, self.drawpanel)
         self.btn_draw_panel.Bind(wx.EVT_BUTTON, self.drawpanel)
         self.btn_draw_frontpanel.Bind(wx.EVT_BUTTON, self.drawfrontpanel)
         self.btn_show_autoplacer.Bind(wx.EVT_BUTTON, self.show_autoplacer)
+        self.btn_show_autoplaceru.Bind(wx.EVT_BUTTON, self.show_autoplaceru)
 
     def drawpanel(self, e):
         hpwidth = int(self.hpbox.GetValue())
@@ -96,6 +106,10 @@ class EurorackTools(wx.Dialog):
 
     def show_autoplacer(self, e):
         from .autoplace import AutoplacerWindow
-        frm = AutoplacerWindow(None, title='Hello World 2')
+        frm = AutoplacerWindow(None, title='Physics Autoplacer')
         frm.Show()
 
+    def show_autoplaceru(self, e):
+        from .autoplace_u import AutoplacerUWindow
+        frm = AutoplacerUWindow(None, title='IC Based Autoplacer')
+        frm.Show()
