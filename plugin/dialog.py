@@ -100,10 +100,6 @@ class EurorackTools(wx.Dialog):
         self.btn_show_tryplacer.Bind(wx.EVT_BUTTON, self.show_tryplacer)
 
 
-        from .tryplacer import TryPlacer
-        frm = TryPlacer(None, title='Simple Autoplacer')
-        frm.Run()
-
     def drawpanel(self, e):
         hpwidth = int(self.hpbox.GetValue())
         draw_euro_panel(hpwidth)
