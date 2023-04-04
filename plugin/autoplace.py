@@ -87,9 +87,9 @@ class Part:
         self.y = scale(footprint.GetCenter().y)
         self._angle = math.radians(footprint.GetOrientationDegrees())
         self.angle = 0
-        self.width = scale(footprint.GetCourtyard(0).Outline(0).GetCachedBBox().GetWidth())
-        self.height = scale(footprint.GetCourtyard(0).Outline(0).GetCachedBBox().GetHeight())
-        self.r = math.sqrt(self.width*self.width+self.height*self.height)/2 + 5
+        self.width = scale(footprint.GetBoundingBox().GetWidth())
+        self.height = scale(footprint.GetBoundingBox().GetHeight())
+        self.r = math.sqrt(self.width*self.width+self.height*self.height)/2 - 5
         self.footprint = footprint
 
         if 'IDC' in footprint.GetDescription() or 'Thonk' in footprint.GetDescription() or 'AlphaPot' in footprint.GetValue() or footprint.GetReference()[0] == 'U' or footprint.GetReference()[0] == 'S':
@@ -137,8 +137,9 @@ class Part:
 
 
 def snap_to_grid(d):
-    k = 1.27*1000000
-    return int(d/k)*k
+    return d
+    # k = 1.27*1000000
+    # return int(d/k)*k
 
 
 
@@ -194,34 +195,36 @@ class AutoplacerWindow(wx.Dialog):
                 if pad.netname not in nets:
                     nets[pad.netname] = []
                 nets[pad.netname].append(pad.body)
-        # for netname in nets:
-        #     for p1 in nets[netname]:
-        #         for p2 in nets[netname]:
-        #             if p1 == p2:
-        #                 continue
-        #             joint = pymunk.constraints.DampedSpring(p1, p2, (0,0), (0,0), 10, 10, 0)
-        #             self.space.add(joint)
-        self.net_bodies = {}
         for netname in nets:
-            if netname == 'GND':
+            if pad.netname in [ 'GND', '+5V', '-12V', '+12V' ]:
                 continue
-            if len(nets[netname]) == 1:
-                continue
-            if len(nets[netname]) == 2:
-                b = nets[netname][0]
-                p = nets[netname][1]
-                joint = pymunk.constraints.DampedSpring(b, p, (0,0), (0,0), 10, 10, 0)
-                self.space.add(joint)
-            else:
-                b = pymunk.Body()
-                c = pymunk.Circle(b, 1)
-                c.mass = 1
-                b.poly = c
-                self.net_bodies[netname] = b
-                self.space.add(b, c)
-                for p in nets[netname]:
-                    joint = pymunk.constraints.DampedSpring(b, p, (0,0), (0,0), 10, 10, 0)
+            for p1 in nets[netname]:
+                for p2 in nets[netname]:
+                    if p1 == p2:
+                        continue
+                    joint = pymunk.constraints.DampedSpring(p1, p2, (0,0), (0,0), 10, 10, 0)
                     self.space.add(joint)
+        # self.net_bodies = {}
+        # for netname in nets:
+        #     if netname == 'GND':
+        #         continue
+        #     if len(nets[netname]) == 1:
+        #         continue
+        #     if len(nets[netname]) == 2:
+        #         b = nets[netname][0]
+        #         p = nets[netname][1]
+        #         joint = pymunk.constraints.DampedSpring(b, p, (0,0), (0,0), 10, 10, 0)
+        #         self.space.add(joint)
+        #     else:
+        #         b = pymunk.Body()
+        #         c = pymunk.Circle(b, 1)
+        #         c.mass = 1
+        #         b.poly = c
+        #         self.net_bodies[netname] = b
+        #         self.space.add(b, c)
+        #         for p in nets[netname]:
+        #             joint = pymunk.constraints.DampedSpring(b, p, (0,0), (0,0), 10, 10, 0)
+        #             self.space.add(joint)
         self.nets = nets
 
         self.walls = []
@@ -277,7 +280,7 @@ class AutoplacerWindow(wx.Dialog):
             dx = part.body.position.x - event.X
             dy = part.body.position.y - event.Y
             x_amount = impulse_amount / max(1,dx*dx)
-            y_amount = impulse_amount / max(1,dy*dx)
+            y_amount = impulse_amount / max(1,dy*dy)
             part.body.apply_impulse_at_world_point((x_amount,y_amount), (event.X,event.Y))
         self.on_paint()
 
@@ -302,14 +305,14 @@ class AutoplacerWindow(wx.Dialog):
                 part.footprint.SetPosition(pcbnew.VECTOR2I(int(snap_to_grid(x)),int(snap_to_grid(y))))
                 # part.footprint.SetOrientationDegrees(math.degrees(-part.body.angle + part._angle) % 360)
                 a = math.degrees(-part.body.angle + part._angle) % 360
-                if a > 45 and a <= 90+45:
-                    a = 90
-                elif a > 90+45 and a <= 180+45:
-                    a = 180
-                elif a > 180+45 and a <= 270+45:
-                    a = 270
-                else:
-                    a = 0
+                # if a > 45 and a <= 90+45:
+                #     a = 90
+                # elif a > 90+45 and a <= 180+45:
+                #     a = 180
+                # elif a > 180+45 and a <= 270+45:
+                #     a = 270
+                # else:
+                #     a = 0
                 part.footprint.SetOrientationDegrees(a)
             except:
                 pass
@@ -349,31 +352,33 @@ class AutoplacerWindow(wx.Dialog):
             pts = [ (downscale(x), downscale(y)) for x,y in pts ]
             draw_poly(dc, downscale(x), downscale(y), pts, 0)
 
-        # # draw nets
-        # for netname in self.nets:
-        #     for p1 in self.nets[netname]:
-        #         for p2 in self.nets[netname]:
-        #             if p1 == p2:
-        #                 continue
-        #             # draw line between two points
-        #             dc.SetPen(wx.Pen((50,50,50)))
-        #             dc.DrawLine(downscale(p1.position.x), downscale(p1.position.y), downscale(p2.position.x), downscale(p2.position.y))
-
         # draw nets
         for netname in self.nets:
-            if len(self.nets[netname]) == 1:
+            if netname in [ 'GND', '+5V', '-12V', '+12V' ]:
                 continue
-            if len(self.nets[netname]) == 2:
-                dc.SetPen(wx.Pen((50,50,50)))
-                p = self.nets[netname][0]
-                b = self.nets[netname][1]
-                dc.DrawLine(downscale(p.position.x), downscale(p.position.y), downscale(b.position.x), downscale(b.position.y))
-            else:
-                b = self.net_bodies[netname]
-                for p in self.nets[netname]:
+            for p1 in self.nets[netname]:
+                for p2 in self.nets[netname]:
+                    if p1 == p2:
+                        continue
                     # draw line between two points
                     dc.SetPen(wx.Pen((50,50,50)))
-                    dc.DrawLine(downscale(p.position.x), downscale(p.position.y), downscale(b.position.x), downscale(b.position.y))
+                    dc.DrawLine(downscale(p1.position.x), downscale(p1.position.y), downscale(p2.position.x), downscale(p2.position.y))
+
+        # # draw nets
+        # for netname in self.nets:
+        #     if len(self.nets[netname]) == 1:
+        #         continue
+        #     if len(self.nets[netname]) == 2:
+        #         dc.SetPen(wx.Pen((50,50,50)))
+        #         p = self.nets[netname][0]
+        #         b = self.nets[netname][1]
+        #         dc.DrawLine(downscale(p.position.x), downscale(p.position.y), downscale(b.position.x), downscale(b.position.y))
+        #     else:
+        #         b = self.net_bodies[netname]
+        #         for p in self.nets[netname]:
+        #             # draw line between two points
+        #             dc.SetPen(wx.Pen((50,50,50)))
+        #             dc.DrawLine(downscale(p.position.x), downscale(p.position.y), downscale(b.position.x), downscale(b.position.y))
 
 
     def on_erase(self, event):
