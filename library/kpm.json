@@ -1,6 +1,6 @@
 {
     "name": "eurorack-parts",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "author": "danroblewis",
     "homepage": "https://github.com/danroblewis/kicad-eurorack-tools",
     "commands": {},
