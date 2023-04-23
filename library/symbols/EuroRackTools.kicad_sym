@@ -2544,7 +2544,7 @@
         (number "8" (effects (font (size 1.27 1.27))))
       )
       (pin power_in line (at 3.81 0 0) (length 3.81) hide
-        (name "-12V" (effects (font (size 1.27 1.27))))
+        (name "+12V" (effects (font (size 1.27 1.27))))
         (number "9" (effects (font (size 1.27 1.27))))
       )
     )
