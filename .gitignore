@@ -6,4 +6,4 @@ build/*.mod
 .kicadsym_filepath
 kpm-eurorack-tools.zip
 
-kpm_modules
+kpm_moduleslibrary/package.zip
