@@ -418,9 +418,9 @@
   (pad "38" smd rect (at 21.59 -2.54 270) (size 3 1) (layers "F.Cu" "F.Paste" "F.Mask") (tstamp e2021af0-c5db-403f-bd1b-cfdc50c335f1))
   (pad "39" smd rect (at 24.13 2.5 270) (size 3 1) (layers "F.Cu" "F.Paste" "F.Mask") (tstamp 55a79d05-b44b-431b-8f55-6ff802643f4c))
   (pad "40" smd rect (at 24.13 -2.54 270) (size 3 1) (layers "F.Cu" "F.Paste" "F.Mask") (tstamp c1ff2cd9-5eb8-4bd1-81c7-9c659b288969))
-  (model "${KICAD6_3DMODEL_DIR}/Connector_PinSocket_2.54mm.3dshapes/PinSocket_2x20_P2.54mm_Vertical_SMD.wrl"
+  (model "${KIPRJMOD}/kpm_modules/kicad-eurorack-3dmodels@0.0.1/3dmodels/PinSocket_2x20_P2.54mm_Vertical_SMD.wrl"
     (offset (xyz 0 0 0))
     (scale (xyz 1 1 1))
-    (rotate (xyz 0 0 0))
+    (rotate (xyz 0 0 90))
   )
 )

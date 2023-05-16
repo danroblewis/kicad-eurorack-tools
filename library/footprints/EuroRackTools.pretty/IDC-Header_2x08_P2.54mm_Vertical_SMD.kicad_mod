@@ -95,9 +95,9 @@
   (pad "14" smd roundrect (at -6.35 3.8 270) (size 5 1.02) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25) (tstamp f65272b0-d78f-4722-a044-698c1ade9fd0))
   (pad "15" smd roundrect (at -8.89 -3.8 270) (size 5 1.02) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25) (tstamp c029f951-8995-4ce9-8397-43abde0c720e))
   (pad "16" smd roundrect (at -8.89 3.8 270) (size 5 1.02) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25) (tstamp 35704378-7ad2-4e6a-ac04-e00802ec1ee4))
-  (model "${KICAD6_3DMODEL_DIR}/Connector_IDC.3dshapes/IDC-Header_2x08_P2.54mm_Vertical_SMD.wrl"
+  (model "${KIPRJMOD}/kpm_modules/kicad-eurorack-3dmodels@0.0.1/3dmodels/IDC-Header_2x08_P2.54mm_Vertical_SMD.wrl"
     (offset (xyz 0 0 0))
     (scale (xyz 1 1 1))
-    (rotate (xyz 0 0 0))
+    (rotate (xyz 0 0 90))
   )
 )

@@ -57,7 +57,7 @@
   (pad "14" smd roundrect (at -1.905 -2.5 90) (size 2 0.6) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25) (tstamp d394f2cf-be8d-4eb7-b886-171326792e50))
   (pad "15" smd roundrect (at -3.175 -2.5 90) (size 2 0.6) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25) (tstamp 9cb324c1-2950-4b91-a3fb-1efa144d6c70))
   (pad "16" smd roundrect (at -4.445 -2.5 90) (size 2 0.6) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25) (tstamp 2b150dda-4e44-4e1e-9bf0-f7408dc68efe))
-  (model "${KICAD6_3DMODEL_DIR}/Package_SO.3dshapes/SOIC-16_3.9x9.9mm_P1.27mm.wrl"
+  (model "${KIPRJMOD}/kpm_modules/kicad-eurorack-3dmodels@0.0.1/3dmodels/SOIC-16_3.9x9.9mm_P1.27mm.wrl"
     (offset (xyz 0 0 0))
     (scale (xyz 1 1 1))
     (rotate (xyz 0 0 -90))

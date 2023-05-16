@@ -58,9 +58,9 @@
   (pad "1" smd rect (at 1.8 1 180) (size 1.2 1.2) (layers "F.Cu" "F.Paste" "F.Mask") (tstamp d1ca1a47-00e1-48d2-87e6-b072037ea86a))
   (pad "2" smd rect (at -1.45 0 180) (size 1.5 1.6) (layers "F.Cu" "F.Paste" "F.Mask") (tstamp c10f0f1f-4179-4f41-9534-c58ef1932a0b))
   (pad "3" smd rect (at 1.8 -1 180) (size 1.2 1.2) (layers "F.Cu" "F.Paste" "F.Mask") (tstamp a1bbd6dc-d81b-49da-af73-b32329ec439e))
-  (model "${KICAD6_3DMODEL_DIR}/Potentiometer_SMD.3dshapes/Potentiometer_Bourns_TC33X_Vertical.wrl"
+  (model "${KIPRJMOD}/kpm_modules/kicad-eurorack-3dmodels@0.0.1/3dmodels/EVM-3E.STEP"
     (offset (xyz 0 0 0))
     (scale (xyz 1 1 1))
-    (rotate (xyz 0 0 0))
+    (rotate (xyz -90 0 -90))
   )
 )

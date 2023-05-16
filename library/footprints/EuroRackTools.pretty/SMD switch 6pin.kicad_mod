@@ -39,4 +39,9 @@
     (thermal_bridge_angle 45) (tstamp cb36bfdf-349b-4137-afcb-040b3598d15c))
   (pad "6" smd roundrect (at 3.429 -2.032 180) (size 2.397 0.6) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
     (thermal_bridge_angle 45) (tstamp 4b07d788-a4a7-45b1-a09a-3404b8c26e0d))
+  (model "${KIPRJMOD}/kpm_modules/kicad-eurorack-3dmodels@0.0.1/3dmodels/5.8x5.8_6p.STEP"
+    (offset (xyz -3 7.1 -0.5))
+    (scale (xyz 1 1 1))
+    (rotate (xyz -90 0 0))
+  )
 )
