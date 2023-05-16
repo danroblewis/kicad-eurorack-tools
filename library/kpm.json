@@ -1,8 +1,10 @@
 {
     "name": "eurorack-parts",
-    "version": "0.0.11",
+    "version": "0.0.13",
     "author": "danroblewis",
     "homepage": "https://github.com/danroblewis/kicad-eurorack-tools",
     "commands": {},
-    "dependencies": {}
+    "dependencies": {
+	"davidhaillant-eurorack-models": "0.0.2"
+    }
 }
