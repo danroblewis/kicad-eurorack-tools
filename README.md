@@ -80,3 +80,4 @@ git diff  # check for conflicts!
 ```
 
 KiCad installations can then be updated with the new version after the github raw cache refreshes (~5min).t
+
